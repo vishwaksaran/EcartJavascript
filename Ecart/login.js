@@ -2,8 +2,8 @@ var arr = [];
 
 function clickBody() {
   // window.location.href = '/'
-  if (localStorage.getItem("SignPage") != null) alert("go to next page");
-  else localStorage.setItem("SignPage", true);
+  // if (localStorage.getItem("SignPage") != null) alert("go to next page");
+  // else localStorage.setItem("SignPage", true);
 }
 
 async function AllProducts() {
