@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="app.css">
+    
+    <title>Sample E-Cart</title>
+    <style>
+     
+    </style>
+    <script src="https://use.fontawesome.com/941242cbe0.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"
+    />
+  </head>
+  <body>
+    <div class="container-fluid p-0" id="Navdiv">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm bg-white">
+        <a class="navbar-brand" href="#"><img src="logo_PC.png" alt="logo" width="100%" height="50" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="justify-content: space-between; flex-grow: 2.5">
+            <div class="Link-Items d-flex mx-2 justify-content-center align-items-center" style="gap: 2em" id="Linked">
+              <li class="nav-item">
+                <a class="nav-link active" id="textU" aria-current="page" href="./index.html">Home</a>
+                <div class="colorB"></div>
+              </li>
+    
+              <li class="nav-item">
+                <a class="nav-link" id="textU" href="./category.html?categoryId=0">Men</a>
+                <div class="colorB"></div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="textU" href="./category.html?categoryId=3">Women</a>
+                <div class="colorB"></div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="textU" href="#">Kids</a>
+                <div class="colorB"></div>
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link" id="textU" href="./category.html?categoryId=2">Home&Living</a>
+                <div class="colorB"></div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="textU" href="./category.html?categoryId=1">Beauty</a>
+                <div class="colorB"></div>
+              </li>
+            </div>
+            <div class="form-items" style="flex: 1.5; align-self: center">
+              <form class="container-fluid">
+                <div class="input-group justify-content-end">
+                  <span class="input-group-text" id="basic-addon1" style="height: 45px"><i class="fa fa-search"></i>
+                    <input type="text" id="Input" class="form-control" placeholder="Search for Products,Brands and More"
+                      aria-label="Username" aria-describedby="basic-addon1" size="50" />
+                  </span>
+                </div>
+              </form>
+            </div>
+            <div class="Icon-List d-flex" style="gap: 2rem">
+              <div class="icons d-flex flex-column justify-content-center align-items-center mx-2">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="icon-text">Profile</span>
+              </div>
+              <div class="icons d-flex flex-column justify-content-center align-items-center mx-2" id="ClickTo" onclick="window.location.href = './Mycart.html'">
+              
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                <span class="icon-text">Cart</span>
+                <span class='badge badge-warning' id='CartCount'>  </span> <!--COUNT FOR CART-->
+              
+              </div>
+              <div class="icons d-flex flex-column justify-content-center align-items-center mx-2">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+                <span class="icon-text">WhishList</span>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- CARD ELEMENT -->
+    <div class="container-fluid my-5 mx-5">
+      <h1 id="Category-Title" class=>ALL PRODUCTS</h1>
+      <div class="row pb-5 mb-4" id="cardDiv">
+        <!-- CARD COLUMN -->
+      </div>
+    </div>
+    <!-- CARD ELEMENT OVER -->
+  </body>
+  <script src ="category.js"></script>
+</html>

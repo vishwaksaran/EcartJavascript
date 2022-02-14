@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app.css">
+    <title>Document</title>
+    <script
+    src="https://kit.fontawesome.com/a076d05399.js"
+    crossorigin="anonymous"
+  ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"
+    />
+    <script src="https://use.fontawesome.com/941242cbe0.js"></script>
+    <!-- <script> src="./product.js"</script> -->
+  </head>
+  <style>
+    .productI {
+      width: 18rem;
+    }
+    h1 {
+      font-family: "Roboto", sans-serif;
+      font-weight: 800;
+    }
+    h3 {
+      font-family: system-ui;
+      font-weight: 100;
+    }
+    .logo {
+      height: 25rem;
+    }
+    #center {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-70%, 56%);
+    }
+    h4{
+        font-family: fantasy;
+    color: forestgreen;
+    }
+  </style>
+  <body>
+
+    <!-- NAV BAR -->
+    <nav
+    class="navbar navbar-expand-lg navbar-light bg-light shadow-sm bg-white"
+  >
+    <a class="navbar-brand" href="#"
+      ><img src="logo_PC.png" alt="logo" width="100%" height="50"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul
+        class="navbar-nav me-auto mb-2 mb-lg-0"
+        style="justify-content: space-between; flex-grow: 2.5"
+      >
+        <div
+          class="Link-Items d-flex mx-2 justify-content-center align-items-center"
+          style="gap: 2em"
+          id="Linked"
+        >
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="textU"
+              aria-current="page"
+              href="./index.html"
+              >Home</a
+            >
+            <div class="colorB"></div>
+          </li>
+
+          <li class="nav-item" >
+            <a class="nav-link" id="textU" href="./category.html?categoryId=0">Men</a>
+            <div class="colorB"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="textU" href="./category.html?categoryId=3" >Women</a>
+            <div class="colorB"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="textU" href="#">Kids</a>
+            <div class="colorB"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="textU" href="./category.html?categoryId=2">Home&Living</a>
+            <div class="colorB"></div>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" id="textU" href="./category.html?categoryId=1">Beauty</a>
+            <div class="colorB"></div>
+          </li>
+        </div>
+        <div class="form-items" style="flex: 1.5; align-self: center">
+          <form class="container-fluid">
+            <div class="input-group justify-content-end">
+              <span
+                class="input-group-text"
+                id="basic-addon1"
+                style="height: 45px"
+                ><i class="fa fa-search"></i>
+                <input
+                  type="text"
+                  id="Input"
+                  class="form-control"
+                  placeholder="Search for Products,Brands and More"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                  size="50"
+                />
+              </span>
+            </div>
+          </form>
+        </div>
+        <div class="Icon-List d-flex" style="gap: 2rem">
+          <div
+            class="icons d-flex flex-column justify-content-center align-items-center mx-2"
+          >
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="icon-text">Profile</span>
+          </div>
+          <div
+            class="icons d-flex flex-column justify-content-center align-items-center mx-2"
+            onclick="window.location.href = './Mycart.html'">
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            <span class="icon-text">Cart</span>
+            <span class='badge badge-warning' id='CartCount'>  </span> <!--COUNT FOR CART-->
+          </div>
+          <div
+            class="icons d-flex flex-column justify-content-center align-items-center mx-2"
+          >
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <span class="icon-text">WhishList</span>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </nav>
+</div>
+<!-- NAV BAR END -->
+    <!-- PRODUCT PAGE STARTS -->
+    <div
+      class="container-fluid my-5 d-flex justify-content-center align-items-center" id="SingleProduct"
+    >
+
+    </div>
+    <!-- PRODUCT PAGE END -->
+  </body>
+
+
+  <script>
+    var arr1=[]
+let productListRow = document.getElementById("SingleProduct");
+console.log("ENTERED srg");
+if (window.location.search != " ") {
+  let id = location.search.split("=")[1];
+  
+  fetchProductList(id);
+} else {
+  alert("NO PARAMERTS PASSED");
+  fetchProductList();
+}
+
+async function fetchProductList(Id) {
+  fetch("https://fakestoreapi.com/products/" + Id)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+
+      renderProductListPage(data);
+      let Sitems = localStorage.getItem("Itemid");
+  var items = JSON.parse(Sitems);
+  if(items.length > 1){
+    var items = items.flat(Infinity);}
+    //let items = items
+   for(let i=0;i<items.length;i++){
+     if(items[i]==Id){
+        document.getElementById("AddTo").disabled=true;
+        break;
+      }
+        else
+        document.getElementById("AddTo").disabled=false;
+   }
+    });
+}
+
+function renderProductListPage(arr) {
+  let SumC = " ";
+  var card = `<div class="row" style="display:contents">
+        <div class="col-6 d-flex justify-content-end align-items-center">
+          <img
+            src="${arr.image}"
+            alt=""
+            class="rounded float-start logo"
+          />
+        </div>
+        <div
+          class="col-6 mx-5"
+          style="margin-block-end: auto; margin-top: 3rem"
+        >
+          <h1>${arr.title}</h1>
+          <h3>Category :${arr.category}</h3>
+          <div id="starcolum d-flex" style="gap:2rem;">
+          <h4>Price : $ ${arr.price}</h4> <div class="starL"><span class="h6"> Rating:${arr.rating.rate}/5</span> 
+             <ul class="list-inline small stardiv">
+             <!-- RATING STAR TO BE ADDED -->
+          </ul>
+        </div>
+      </div>
+          <h5>
+            ${arr.description}
+          </h5>
+          <div class="btn-group me-auto my-3 w-100">
+            <button class="btn btn-primary" onclick="BackToHome()">BACK TO HOME</button>
+            <button class="btn btn-primary mx-5" onclick="AddtoCart(${arr.id})" id="AddTo">ADD TO CART</button>
+          </div>
+        </div>
+      </div> `;
+
+  productListRow.innerHTML = productListRow.innerHTML + card;
+
+  let carddiv = document.getElementsByClassName("stardiv");
+  console.log("CARDIV" + carddiv.length);
+  for (let i = 0; i < carddiv.length; i++) {
+    let stars = Math.floor(arr.rating.rate);
+    let sum = " ";
+    for (let j = 0; j < 5; j++) {
+      if (j < stars) {
+        let addstardiv = `<li class="list-inline-item m-0">
+                    <i class="fa fa-star text-success"></i>
+                  </li>`;
+        sum = sum + addstardiv;
+      } else {
+        let addstardiv = `<li class="list-inline-item m-0">
+          <i class="fa fa-star-o text-success"></i>
+        </li>`;
+        sum = sum + addstardiv;
+      }
+    }
+    carddiv[i].innerHTML = sum;
+  }
+}
+
+
+function AddtoCart(id){
+  document.getElementById("AddTo").disabled="true";
+  arr1.push(id);
+  let item = [...new Set(arr1)];
+  console.log("ELEMENT ADD "+item)
+  if(item.length > 1){
+    var items = item.flat(Infinity);}
+    else {var items = item}
+  localStorage.setItem("Itemid", JSON.stringify(items));
+  document.getElementById("CartCount").style.display = "block";
+  document.getElementById("CartCount").innerText = items.length;
+}
+
+function BackToHome(){
+  window.location.href="./index.html";
+}
+
+window.addEventListener("load",(event)=>{
+  let cardC = document.getElementById("CartCount").innerText;
+if(localStorage.getItem("Itemid")!=null){
+  console.log(localStorage)
+  let Sitems = localStorage.getItem("Itemid");
+  let items = JSON.parse(Sitems);
+  if(items.length > 1){
+    var frames = items.flat(Infinity);}
+    else 
+      {var frames = items}
+    console.log("items "+ items)
+    arr1.push(frames);
+    document.getElementById("CartCount").style.display = "block";
+    document.getElementById("CartCount").innerText = frames.length;
+    cardC = frames.length;
+    if (!cardC || cardC == 0) {
+      document.getElementById("CartCount").style.display = "none";
+    }
+  
+
+}
+else {
+    document.getElementById("CartCount").style.display = "none";
+  }
+
+
+
+})
+
+
+  </script>
+  <script src="login.js"></script>
+ 
+</html>

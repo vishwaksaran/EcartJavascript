@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</style>
+<script src="https://use.fontawesome.com/941242cbe0.js"></script>
+  <title>CART</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="cart.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!-- NAV BAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm bg-white">
+    <a class="navbar-brand" href="#"><img src="logo_PC.png" alt="logo" width="100%" height="50" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="justify-content: space-between; flex-grow: 2.5">
+        <div class="Link-Items d-flex mx-2 justify-content-center align-items-center" style="gap: 2em" id="Linked">
+          <li class="nav-item">
+            <a class="nav-link active" id="textU" aria-current="page" href="./index.html">Home</a>
+            <div class="colorB"></div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" id="textU" href="./category.html?categoryId=0">Men</a>
+            <div class="colorB"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="textU" href="./category.html?categoryId=3">Women</a>
+            <div class="colorB"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="textU" href="#">Kids</a>
+            <div class="colorB"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="textU" href="./category.html?categoryId=2">Home&Living</a>
+            <div class="colorB"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="textU" href="./category.html?categoryId=1">Beauty</a>
+            <div class="colorB"></div>
+          </li>
+        </div>
+        <div class="form-items" style="flex: 1.5; align-self: center">
+          <form class="container-fluid">
+            <div class="input-group justify-content-end">
+              <span class="input-group-text" id="basic-addon1" style="height: 45px"><i class="fa fa-search"></i>
+                <input type="text" id="Input" class="form-control" placeholder="Search for Products,Brands and More"
+                  aria-label="Username" aria-describedby="basic-addon1" size="50" />
+              </span>
+            </div>
+          </form>
+        </div>
+        <div class="Icon-List d-flex" style="gap: 2rem">
+          <div class="icons d-flex flex-column justify-content-center align-items-center mx-2">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span class="icon-text">Profile</span>
+          </div>
+          <div class="icons d-flex flex-column justify-content-center align-items-center mx-2">
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            <span class="icon-text">Cart</span>
+            <span class='badge badge-warning CCount' id='CartCount'>  </span> <!--COUNT FOR CART-->
+          </div>
+          <div class="icons d-flex flex-column justify-content-center align-items-center mx-2">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <span class="icon-text">WhishList</span>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- NAV BAR END -->
+
+
+
+  <div class="container my-5" id="MainC">
+    <!-- NO ITEM CART DIV STARTS -->
+    <div class="card row align-items-center justify-content-center bg-white border-light shadow-sm mb-3  text-center "
+      style=" width: 100%;
+      display: none;" id="NocartDiv">
+      <div class="col-12">
+        <h1>NO PRODCTS TO DISPLAY IN CART</h1>
+        <hr>
+      </div>
+      <div class="container d-flex justify-content-center align-items-center">
+        <img src="./no-cart.png" alt="" class="img-fluid">
+      </div>
+
+    </div>
+<!-- NO ITEM CART DIV ENDS -->
+
+<!-- PRODUCT CART DIV STARTS -->
+    <div class="row" id="ItemCarts-Display">
+      <div class=" card-header bg-light h2 rounded container" style="width: 101%;">CART PRODUCTS</div>
+      <div class="rounded col-6 card-header bg-light" style="height:20.51em; overflow-y: scroll;" id="carddiv">
+
+        <!-- CARD ITEM ELEMENT STARTS-->
+     
+     
+
+
+
+  
+    </div>
+    <div class="col-6" id="SumaryDiv">
+      <!-- SUMMARY DIV -->
+
+    </div>
+    <!-- PRODUCT DIV ENDS -->
+  </div>
+  </div>
+  <script src="Mycart.js"></script>
+
+</body>
+
+</html>

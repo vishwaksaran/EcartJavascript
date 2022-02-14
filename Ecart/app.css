@@ -1,0 +1,69 @@
+@font-face {
+  font-family: CustomU;
+  src: url("https://constant.myntassets.com/www/fonts/WhitneyHTF-Book.woff");
+}
+@font-face {
+  font-family: CustomU;
+  font-weight: bold;
+  src: url("https://constant.myntassets.com/www/fonts/WhitneyHTF-Book.woff");
+}
+#textU {
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+  color: #282c3f;
+}
+#Input {
+  background-color: #e9ecef;
+  border: none;
+  border-radius: 0.25rem;
+}
+#basic-addon1 {
+  border: none;
+}
+.icon-text {
+  font-family: CustomU;
+}
+.colorB {
+  display: none;
+  background-color: #ee5f73;
+  width: 4rem;
+  height: 7%;
+  position: absolute;
+  bottom: 0;
+}
+li:nth-child(5) > div {
+  display: none;
+  background-color: #ee5f73;
+  width: 8rem;
+  height: 7%;
+  position: absolute;
+  bottom: 0;
+}
+
+.nav-item:hover > .colorB,
+.nav-item:hover > #textU {
+  color: #ee5f73;
+  display: block;
+}
+.icons:hover > i,
+.icons:hover > span {
+  color: #ee5f73;
+}
+.Desc {
+  font-family: "Bebas Neue", cursive;
+}
+.PriceTxt {
+  font-family: "Josefin Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.ratediv {
+  font-family: "Bebas Neue", cursive;
+}
+
+#CartCount {
+  border-radius: 50px;
+  top: 14px;
+  right: 125px;
+  position: absolute;
+}
